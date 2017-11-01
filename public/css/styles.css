@@ -1,6 +1,16 @@
 .jumbotron {
+  height: 100vh;
   color: white;
   background-image: url('../img/forest.jpg');
-  background-size: contain;
+  background-repeat: no-repeat;
+  background-size: cover;
   background-position: center;
 }
+
+/*.btn {
+  margin-right: 1rem;
+}*/
+
+/*.btn:last-child {
+  margin-right: 0;
+}*/
