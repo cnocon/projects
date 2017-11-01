@@ -1,0 +1,6 @@
+.jumbotron {
+  color: white;
+  background-image: url('../img/forest.jpg');
+  background-size: contain;
+  background-position: center;
+}

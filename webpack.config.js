@@ -1,10 +1,10 @@
 const path = require('path');
 
 module.exports = {
-  entry: path.resolve('./src/index.js'),
+  entry: path.resolve('./src/client.js'),
   output: {
-    filename: 'bundle.js',
     path: path.resolve('./dist'),
+    filename: 'bundle.js',
   },
   devServer:{
     inline:true,
