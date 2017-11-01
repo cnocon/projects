@@ -9,7 +9,7 @@ export default class App extends React.Component {
           <h1>Building React User Interfaces with Bootstrap and SASS</h1>
           <p>with Bootstrap and SASS</p>
           <Button type="button" value="Does Nothing" className="btn-danger" />
-          <Button href="http://cristin.io" label="Code Examples" className="btn-success ml-2" target="_blank"/>
+          <Button href="http://cristin.io" label="Code Examples" className="-success ml-2" target="_blank"/>
         </div>
       </div>
     );
