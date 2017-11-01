@@ -6,10 +6,11 @@ export default class App extends React.Component {
     return (
       <div className="jumbotron jumbotron-fluid text-sm-center" style={{height:'100vh'}}>
         <div className="container">
-          <h1>Building React User Interfaces with Bootstrap and SASS</h1>
-          <p>with Bootstrap and SASS</p>
-          <Button type="button" value="Does Nothing" className="btn-danger" />
-          <Button href="http://cristin.io" label="Code Examples" className="-success ml-2" target="_blank"/>
+          <h1 className="font-weight-light display-4">Building React User Interfaces with Bootstrap and SASS</h1>
+          <p className="lead mb-5">with Bootstrap and SASS</p>
+          <Button href="http://cristin.io" label="Code Examples" className="-primary ml-2" target="_blank"/>
+          <Button href="mailto:cristin@cristinoconnor.com" label="Contact Me" className="-primary ml-2" />
+          <p><Button type="button" value="I'm Useless" className="-secondary mx-auto w-60 mt-4" /></p>
         </div>
       </div>
     );
