@@ -2,12 +2,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const component = <div className="jumbotron jumbotron-fluid text-sm-center">
-  <div className="container">
-      <h1>Building React User Interfaces with Bootstrap and SASS</h1>
-      <p></p>
-      <p><a className="btn btn-primary" href="http://02geek.com" target="_blank">Discover Things</a></p>
-    </div>
-  </div>;
+// import your App class so it gets delivered to client; it's the path to the app file.
+import App from './app'
 
-ReactDOM.render(component, document.getElementById('root'));
+// ReactDOM.render(component, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
