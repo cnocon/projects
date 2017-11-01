@@ -2,24 +2,21 @@ import React from 'react';
 
 export default class Button extends React.Component {
   classify (key, value) {
-    let terms = value.split(' ');
-    let classNames = 'btn ';
-
+    const terms = value.split(' ');
+    let classes = 'btn';
     while (terms.length > 0) {
       const text = terms.pop();
-      let newClass = /^-/.test(text) ? 'btn' + text : text;
-      classNames += ' ' + newClass;
+      const newClass = /^-/.test(text) ? `${key}${text}` : text;
+      classes += ` ${newClass}`;
     }
-
-    return classNames;
+    return classes;
   }
-
   render () {
     const Tag = this.props.value ? 'button' : 'a';
-    const classes = this.classify(Tag, this.props.className);
+    const classNames = this.classify('btn', this.props.className);
     const text = this.props.value || this.props.label;
     return (
-      <Tag {...this.props} className={classes}>{text}</Tag>
+      <Tag {...this.props} className={classNames}>{text}</Tag>
     );
   }
 }
