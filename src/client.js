@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 // import your App class so it gets delivered to client; it's the path to the app file.
-import App from './app'
+import App from './app';
 
 // ReactDOM.render(component, document.getElementById('root'));
 ReactDOM.render(<App />, document.getElementById('root'));
