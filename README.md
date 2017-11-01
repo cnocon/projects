@@ -1,2 +1,0 @@
-# projects
-Houses pet projects.
