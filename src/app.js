@@ -15,8 +15,7 @@ export default class App extends React.Component {
           <p className="lead">with Bootstrap and SASS</p>
           <Button href="http://cristin.io" role="button" target="_blank" label="Code" className="-primary -lg"/>
           <Button href="mailto:cristin@cristin.io" role="button" target="_blank" label="Contact" className="-primary -lg" />
-          <Button type="button" className="-danger -lg">&hearts; Like</Button>
-          <Button type="button" value="Do This!" className="-success -lg"/>
+          <Button type="button" className="-danger rounded rounded-circle text-light -lg" value="&hearts;"/>
         </Jumbotron>
       </CSSTransitionGroup>
     );
