@@ -1,5 +1,5 @@
 import React from 'react';
-import {classify} from './utils'
+import {classify} from './utils';
 
 export default class Button extends React.Component {
   render () {

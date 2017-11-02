@@ -9,9 +9,9 @@ export default class App extends React.Component {
       <Jumbotron className="-fluid" containerFluid={true}>
         <h1 className="display-3">Building React User Interfaces</h1>
         <p className="lead">with Bootstrap and SASS</p>
-        <Button href="http://cristin.io" label="Code Examples" className="-primary -lg" role="button" target="_blank"/>
-        <Button href="mailto:cristin@cristin.io" role="button" label="Contact Me" className="-primary -lg" />
-        <Button type="button" value="&hearts;" className="-secondary -lg text-primary" />
+        <Button href="http://cristin.io" role="button" target="_blank" label="Code Examples" className="-primary -lg"/>
+        <Button href="mailto:cristin@cristin.io" role="button" target="_blank" label="Contact Me" className="-primary -lg" />
+        <Button type="button" value="&hearts;" className="-light -lg text-primary" />
       </Jumbotron>
     );
   }
