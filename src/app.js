@@ -1,18 +1,19 @@
 import React from 'react';
 import Button from './bootstrap/button';
+import Jumbotron from './bootstrap/jumbotron';
 
 export default class App extends React.Component {
   render() {
     return (
-      <div className="jumbotron jumbotron-fluid text-sm-center">
-        <div className="container">
-          <h1 className="font-weight-light display-4">Building React User Interfaces with Bootstrap and SASS</h1>
-          <p className="lead mb-5">with Bootstrap and SASS</p>
-          <Button href="http://cristin.io" label="Code Examples" className="-primary ml-2" target="_blank"/>
-          <Button href="mailto:cristin@cristin.io" label="Contact Me" className="-primary ml-2" />
-          <p><Button type="button" value="I'm Useless" className="-secondary mx-auto w-60 mt-4" /></p>
+      <Jumbotron className="jumbotron jumbotron-fluid text-sm-center" style={{height:"100vh"}}>
+        <div className="container text-white p-4">
+          <h1 className="display-2">Building React User Interfaces</h1>
+          <p className="lead mb-5 display-4">with Bootstrap and SASS</p>
+          <Button href="//cristin.io" label="Code Examples" className="-primary -lg mr-4" role="button" target="_blank"/>
+          <Button href="mailto:cristin@cristin.io" label="Contact Me" className="-primary -lg" />
+          <p className="mt-4"><Button type="button" value="&hearts;" className="-secondary text-primary -lg" /></p>
         </div>
-      </div>
+      </Jumbotron>
     );
   }
 }
