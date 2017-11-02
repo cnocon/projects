@@ -14,7 +14,8 @@ module.exports = {
   },
   module:{
     loaders: [
-      { test: /\.js$/,
+      {
+        test: /\.js$/,
         exclude: /node_modules/,
         loader:'babel-loader',
       },
@@ -24,6 +25,10 @@ module.exports = {
         //  send any css to the css-loader that uses our ExtractTextPlugin
         loader: ExtractTextPlugin.extract(['css-loader'])
       },
+      {
+        test: /\.(sass|scss)$/,
+        loader: ExtractTextPlugin.extract(['css-loader','sass-loader'])
+      }
     ],
   },
   plugins: [

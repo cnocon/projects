@@ -1,0 +1,84 @@
+#root {
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.jumbotron {
+  background-image: url('/img/forest.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  padding: 10vh 2.5%;
+  text-align: center;
+
+  h1, .lead {
+    color: #fff;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  .lead {
+    margin-bottom: 1.5rem;
+    font-size: 1.75rem;
+  }
+
+  .btn {
+    margin: 2rem 2.75% 0;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:focus {
+      color: #fff;
+    }
+  }
+}
+
+@media screen and (min-width: 43.75rem) {
+  .jumbotron {
+    padding: 15vh 10%;
+
+    h1 {
+      font-size: 4rem;
+    }
+
+    .lead {
+      margin-bottom: 3rem;
+      font-size: 1.75rem;
+    }
+
+    .btn {
+      margin: 0 0.75rem 0;
+    }
+  }
+}
+
+@media screen and (min-width: 64rem) {
+  .jumbotron {
+    padding: 15vh 12.5%;
+
+    h1 {
+      font-size: 6rem;
+    }
+
+    .lead {
+      font-size: 3.5rem;
+      margin-bottom: 5rem;
+    }
+
+    .btn {
+      font-size: 1.75rem;
+      margin-right: 1rem;
+    }
+  }
+}
+
+@media screen and (min-width: 85.5rem) {
+  .jumbotron {
+    padding: 20vh 15%;
+  }
+}
