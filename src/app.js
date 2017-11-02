@@ -1,19 +1,18 @@
 import React from 'react';
-// import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { CSSTransitionGroup } from 'react-transition-group'; // ES6
-
 import Button from './bootstrap/button';
 import Jumbotron from './bootstrap/jumbotron';
 import './app.scss';
 
 export default class App extends React.Component {
-  // within the context of the constructor, we can make sure a react component knows how to fetch and handle props, so we're going to call for the parent via super
   constructor(props) {
     super(props);
     this.onClick = this.onClick.bind(this);
+    // the only time you directly set state is here. every other time you have to call this.setState(blah) or else React won't recognize that there was a state change!! Using this.setState lets react know something changed and it needs to call the render method again.
+    this.state = {clickCount: 0};
   }
   onClick(e) {
-    console.log(this); // 'this' is undefined since we are IN THE PROCESS OF CREATING A NEW OBJECT; `this` is not a thing yet. To fix this you can use a constructor,
+    this.setState({click: this.state.clickCount++});
   }
   render() {
     return (
@@ -23,7 +22,7 @@ export default class App extends React.Component {
           <p className="lead">with Bootstrap and SASS</p>
           <Button href="http://cristin.io" role="button" target="_blank" label="Code" className="-primary -lg"/>
           <Button href="mailto:cristin@cristin.io" role="button" target="_blank" label="Contact" className="-primary -lg" />
-          <Button onClick={this.onClick} type="button" className="-danger rounded rounded-circle text-light -lg" value="&hearts;"/>
+          <Button onClick={this.onClick} type="button" className="-success rounded rounded-circle -lg" value={this.state.clickCount || '0'}/>
         </Jumbotron>
       </CSSTransitionGroup>
     );

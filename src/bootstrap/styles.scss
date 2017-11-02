@@ -46,19 +46,14 @@ $image: url(/img/forest.jpg);
     &:hover {
       cursor: pointer;
     }
-
-    &:focus {
-      color: #fff;
-    }
   }
 
   .btn.rounded-circle {
-    font-family: $font-family-monospace;
     font-weight: bold;
-    width: 50px;
-    height: 50px;
-    font-size: 40px;
-    line-height: 40px;
+    width: 60px;
+    height: 60px;
+    font-size: 45px;
+    line-height: 60px;
     text-align: center;
     padding: 0;
     border-width: 0;
