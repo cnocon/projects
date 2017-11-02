@@ -7,7 +7,7 @@ export default class Button extends React.Component {
     const classNames = classify('btn', this.props.className);
     const text = this.props.value || this.props.label;
     return (
-      <Tag {...this.props} className={classNames}>{text}</Tag>
+      <Tag {...this.props} className={classNames}>{text || this.props.children}</Tag>
     );
   }
 }
