@@ -8,21 +8,19 @@ $image: url(/img/forest.jpg);
   text-align: center;
 }
 
-.app-appear {
-  opacity: 0.01;
-}
-.app-appear-active {
-  opacity: 1;
-  transition: opacity 500ms ease-in;
-}
-
-
 .buttons-enter {
   opacity: 0.01;
 }
 .buttons-enter-active {
   opacity: 1;
-  transition: opacity 5s ease-in;
+  transition: opacity 2s ease-in;
+}
+.buttons-leave {
+  opacity: 1;
+}
+.buttons-leave-active {
+  opacity: 0;
+  transition: opacity 500ms ease-out;
 }
 
 #root {
