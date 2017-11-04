@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Map from './components/map';
+import Chart from './components/chart';
 
-ReactDOM.render(<Map />, document.getElementById('root'));
+ReactDOM.render(<Chart />, document.getElementById('root'));
 
