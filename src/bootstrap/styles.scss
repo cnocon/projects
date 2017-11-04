@@ -11,10 +11,18 @@ $image: url(/img/forest.jpg);
 .app-appear {
   opacity: 0.01;
 }
-
 .app-appear-active {
   opacity: 1;
-  transition: opacity 0.5s ease-in;
+  transition: opacity 500ms ease-in;
+}
+
+
+.buttons-enter {
+  opacity: 0.01;
+}
+.buttons-enter-active {
+  opacity: 1;
+  transition: opacity 5s ease-in;
 }
 
 #root {
