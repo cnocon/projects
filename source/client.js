@@ -1,10 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import data from './data.json';
-import App from './components/app';
+import Map from './components/map';
 
-ReactDOM.render(
-  <App {...data} />,
-  document.getElementById('root')
-);
+ReactDOM.render(<Map />, document.getElementById('root'));
 
