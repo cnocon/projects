@@ -6,7 +6,6 @@ export default class Chart extends React.Component {
     return (
       <div style={{width:900, height:300, backgroundColor:'cyan'}}><canvas></canvas>
       </div>
-
     )
   }
 }
