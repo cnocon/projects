@@ -6,17 +6,19 @@ const data = {
   type: 'bar',
   data: {
     labels: ["Ben", "James", "Marry", "Sam", "Gloria"],
-    dataset: [
+    datasets: [
       {
         label: 'Fun',
         data:[80,40,21,44,94],
-        borderColor: "rgba(255,0,0,0.2)",
+        backgroundColor: "rgba(255,0,0,0.2)",
+        borderColor: 'red',
         borderWidth:1
       },
       {
         label: 'Smart',
         data:[90,30,90,90,100],
-        borderColor: "green",
+        backgroundColor: "rgba(0,0,255,0.2)",
+        borderColor: "blue",
         borderWidth:1
       }
     ]
