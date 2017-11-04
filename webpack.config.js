@@ -1,3 +1,4 @@
+
 module.exports = {
   entry: './source/client.js',
   output: {
@@ -18,6 +19,10 @@ module.exports = {
     {
       test: /\.json$/,
       loader: 'json-loader'
+    },
+    {
+      test: /\.csv$/,
+      loader: 'dsv-loader'
     }]
   }
 }
