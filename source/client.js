@@ -4,27 +4,12 @@ import Chart from './components/chart';
 // import array2chart from './utils/array2chart';
 import $ from 'jquery';
 
-$.getJSON('http://localhost:3001/chart.json', function(json){
-  console.log(json);
+$.getJSON('http://localhost:3001/chart.json', function(json) {
+  const data = {
+    type: "radar",
+    data: json,
+    options: {}
+  };
+
+  ReactDOM.render(<Chart {...data} />, document.getElementById('root'));
 });
-
-
-// const data = {
-//   type: "bar",
-//   data: array2chart(rawData),
-//   options: {
-//     responsive: true,
-//     title:{
-//       display: true,
-//       text: 'About Some People'
-//     },
-//     hover: {
-//       mode: 'label'
-//     },
-//     tooltips: {
-//       mode: 'label'
-//     }
-//   }
-// }
-
-// ReactDOM.render(<Chart {...data} />, document.getElementById('root'));
