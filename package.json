@@ -1,16 +1,34 @@
 {
-  "name": "Server",
+  "name": "react-visual",
   "version": "1.0.0",
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ]
+  },
   "description": "",
-  "main": "server.js",
+  "main": "build/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server"
   },
   "keywords": [],
   "author": "Ben Fhala <ben@02geek.com>",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.13.4",
-    "mongojs": "^2.4.0"
+    "babel-core": "^6.26.0",
+    "babel-polyfill": "^6.9.1",
+    "babel-preset-env": "^1.6.1",
+    "chart.js": "^2.1.6",
+    "jquery": "^3.1.0",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0"
+  },
+  "devDependencies": {
+    "babel-loader": "^6.2.4",
+    "babel-preset-react": "^6.5.0",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1",
+    "dsv-loader": "^1.1.0"
   }
 }
