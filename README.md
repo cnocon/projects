@@ -42,3 +42,14 @@ MongoDB auto assigns unique iDs. But ONLY on items directly inserted into the co
   ]
 }
 ```
+
+---
+
+## Server steps from this section: 
+1. `use ChartsDB`
+2. `db.charts.insert( {   labels: ["Math", "English", "Spanish", "history", "Philosophy", "Sports", "Science"],   datasets: [     {       label: 'James',       backgroundColor: "rgba(179,181,198,0.2)",       borderColor: "rgba(179,181,198,1)",       pointBackgroundColor: "pink",       pointBorderColor: "white",       pointHoverBackgroundColor: "#efefef",       pointHoverBorderColor: "red",       data: [93,88,93,99,100,70,92]     },     {       label: 'Larry',       backgroundColor: "rgba(179,181,198,0.2)",       borderColor: "rgba(179,181,198,1)",       pointBackgroundColor: "pink",       pointBorderColor: "white",       pointHoverBackgroundColor: "#efefef",       pointHoverBorderColor: "red",       data: [63,98,23,79,80,70,12]     }   ] } )`
+3. `db.charts.find()`
+4. We copied the objectid and put it in server.js
+
+---
+## Steps from this section:
