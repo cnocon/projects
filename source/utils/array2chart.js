@@ -3,7 +3,7 @@ import RandomColor from 'just.randomcolor';
 export function array2chart(array) {
   let obj = array.shift(),
     formattedData = {labels: [obj.name], datasets:[]},
-    map = new Map(); //this is an ES6 feature
+    map = new Map();
 
   delete obj.name;
 

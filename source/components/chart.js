@@ -1,6 +1,8 @@
 import React from 'react';
 import ChartJS from 'Chart.js';
 
+ChartJS.defaults.global.defaultFontSize = 16;
+
 export default class Chart extends React.Component {
   componentDidMount() {
     const context = this.refs['chart'].getContext('2d');
@@ -14,9 +16,7 @@ export default class Chart extends React.Component {
   }
   render() {
     return (
-      <div style={{width:900, height:300}}>
-        <canvas ref="chart"></canvas>
-      </div>
+      <canvas ref="chart"></canvas>
     )
   }
 }

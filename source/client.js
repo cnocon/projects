@@ -8,7 +8,19 @@ import {array2chart} from './utils/array2chart';
 const data = {
   type: "bar",
   data: array2chart(rawData),
-  options: {}
+  options: {
+    responsive: true,
+    title:{
+      display: true,
+      text: 'About Some People'
+    },
+    hover: {
+      mode: 'label'
+    },
+    tooltips: {
+      mode: 'label'
+    }
+  }
 }
 
 ReactDOM.render(<Chart {...data} />, document.getElementById('root'));
