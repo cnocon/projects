@@ -20,6 +20,7 @@
     "babel-polyfill": "^6.9.1",
     "chart.js": "^2.7.1",
     "griddle-react": "^1.9.0",
+    "just.randomcolor": "^0.1.1",
     "react": "^15.1.0",
     "react-dom": "^15.1.0"
   },

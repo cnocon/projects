@@ -1,3 +1,5 @@
+import RandomColor from 'just.randomcolor';
+
 export function array2chart(array) {
   let obj = array.shift(),
     formattedData = {labels: [obj.name], datasets:[]},
@@ -7,6 +9,12 @@ export function array2chart(array) {
 
   for(var item in obj) {
     let ds = {label: item, data: [obj[item]]};
+    let color = new RandomColor().toRGBA();
+
+    ds.backgroundColor = color.toCSS();
+    color.value.a = 0.5;
+    ds.borderColor = color.toCSS();
+    ds.borderWidth = 2;
     formattedData.datasets.push(ds);
     map[item] = ds;
   };
