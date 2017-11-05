@@ -1,0 +1,10 @@
+{
+  "name": "Cristin",
+  "age": 29,
+  "smart": true,
+  "friends": ["Caroline","Taylor","Mike","Obie"],
+  "address": {
+    "city": "Chicago",
+    "state": "IL"
+  }
+}
