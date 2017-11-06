@@ -1,27 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Chart from './components/chart';
-import $ from 'jquery';
+import App from './components/app';
+// import homicides from "../data/homicide-per-100000-2004-2015.csv";
+import homicides from "../data/csv-homicides_2014.csv";
+import {barData, a2c} from './utils/chartDataFormatter';
 
-$.getJSON('http://localhost:3001/charts/', function(json){
-	const data = {
-		type:"bar", //bar, horizontalBar,line
-		data:json[0],
-		options:null
-	};
+// const data = barData(homicides);
+const data = a2c(homicides);
 
-	ReactDOM.render(<Chart {...data} />, document.getElementById("root"));
-
-});
-
-
-
-
-
-
-
-
-
-
-
-
+ReactDOM.render(<App {...data} />, document.getElementById('root'));
