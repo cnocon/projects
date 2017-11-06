@@ -30,7 +30,7 @@ $square-font: 'Freckle Face','Tahoma','Trebuchet MS';
     display: inline-block;
     text-align: center;
     font-family: $primary-font;
-    background: $indigo;
+    background: $purple;
     font-weight: 300;
     font-size: 1.25rem;
     line-height: 1.5em;
@@ -97,12 +97,12 @@ $square-font: 'Freckle Face','Tahoma','Trebuchet MS';
     border-left-width: 1px;
   }
   &:hover {
-    background: rgba($indigo, 0.8);
+    background: rgba($purple,1);
     cursor: pointer;
     color: $white;
   }
   &:active {
-    background: rgba($purple, 1);
+    background: rgba($teal, 1);
     color: $white;
   }
   &:active,
