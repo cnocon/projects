@@ -1,5 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Prosto+One');
 $image: url(/img/forest.jpg);
+$border-style:1px solid #ccc;
 
+.game {
+  width: 300px;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+}
+.game-board {
+  display: inline-block;
+  margin: 0 auto;
+  width: auto;
+  padding: 34px 0;
+  .board-row {
+    font-family: 'Prosto One';
+    display: block;
+    width: 210px;
+    height: 68px;
+    border: $border-style;
+    border-top: 0;
+    background: #fff;
+
+    &:first-child {
+      border-top: $border-style;
+    }
+  }
+}
+.square {
+  display: inline-block;
+  text-align: center;
+  font-size: 24px;
+  line-height: 68px;
+  vertical-align: middle;
+  color: #222;
+  width: 68px;
+  height: 68px;
+  background: transparent;
+  &:first-child {
+    border-right: $border-style;
+  }
+  &:last-child {
+    border-left: $border-style;
+  }
+}
 @mixin background-it($path) {
   background-image: $path;
   background-repeat: no-repeat;
