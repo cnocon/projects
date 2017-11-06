@@ -1,7 +1,7 @@
 import React from 'react';
 import { CSSTransitionGroup } from 'react-transition-group'; // ES6
-import Button from './bootstrap/button';
-import Jumbotron from './bootstrap/jumbotron';
+// import Button from './bootstrap/button';
+// import Jumbotron from './bootstrap/jumbotron';
 import './app.scss';
 
 
@@ -34,18 +34,76 @@ class Clock extends React.Component {
   render() {
     return (
       <div>
-        <h1>Hello, world!</h1>
-        <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+        <h1 className="display-4">It is {this.state.date.toLocaleTimeString()}.</h1>
       </div>
     );
+  }
+}
+
+class Button extends React.Component {
+  handleClick(e) {
+    e.preventDefault();
+    console.log(e.target);
+  }
+  render() {
+    return (
+      <div className="row">
+        <a className="btn btn-primary mx-auto" href="http://cristin.io" onClick={this.handleClick} target="_blank">
+        Log Me to the Console!
+        </a>
+      </div>
+    )
+  }
+}
+//this Toggle component renders a button that lets the user toggle between “ON” and “OFF” states:
+class Toggle extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {isToggleOn: true};
+    //pro tip: Generally, if you refer to a method without () after it, as is done in the return statement of render down there with onClick={this.handleClick}, you should bind that method.
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick(e) {
+    this.setState(
+      prevState =>({isToggleOn: !prevState.isToggleOn})
+    );
+  }
+  thisExperiment(e) {
+    console.log(this);
+    console.log(e);
+  }
+  render () {
+    return (
+      <div className="col-sm mt-2">
+        <button onClick={this.handleClick} className="btn btn-dark btn-lg mx-auto">
+          {this.state.isToggleOn ? 'ON' : 'OFF'}
+        </button>
+        <div className="clearfix text-center mx-auto mt-2">
+          <p className="lead text-left">If we wanted to pass arguments in the onClick callback, either of the below methods would work. The arrow callback button calls (e) => this.thisExperiment(e) onClick. The bind button calls this.thisExperiment.bind(this) onClick.</p>
+          <a href="#" onClick={(e) => this.thisExperiment(e)} className="btn btn-dark btn-outline-primary">onClick (e) => this.thisExperiment(e)</a>
+
+          <a href="#" onClick={this.thisExperiment.bind(this)} className="btn btn-dark btn-outline-primary ml-4">onClick this.thisExperiment.bind(this)</a>
+        </div>
+      </div>
+    )
   }
 }
 
 export class App extends React.Component {
   render () {
     return (
-      <div>
-        <Clock />
+      <div className="container p-4 text-center">
+        <div className="row">;
+          <div className="col-sm"><Clock /></div>
+        </div>
+        <div className="row">
+          <div className="col-sm"><Button /></div>
+        </div>
+
+        <div className="row">
+          <Toggle />
+        </div>
+
       </div>
     )
   }
