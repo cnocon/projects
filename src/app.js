@@ -1,47 +1,83 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { CSSTransitionGroup } from 'react-transition-group'; // ES6
-import Button from './bootstrap/button';
-import Jumbotron from './bootstrap/jumbotron';
+// import Button from './bootstrap/button';
+// import Jumbotron from './bootstrap/jumbotron';
 import './app.scss';
+const messages = ['React', 'Re: React', 'Re:Re: React'];
 
-export default class App extends React.Component {
+function UserGreeting(props) {
+  return <h1 className="float-left font-weight-light">Welcome</h1>;
+}
+
+function GuestGreeting(props) {
+  return <h1 className="float-left font-weight-light">Please Log In</h1>;
+}
+
+function Greeting(props) {
+  return props.isLoggedIn ? <UserGreeting /> : <GuestGreeting />;
+}
+
+function LoginButton(props) {
+  return <button {...props}>Log In</button>;
+}
+
+function LogoutButton(props) {
+  return <button {...props}>Log Out</button>;
+}
+// In the example below, we will create a stateful component called LoginControl. It will render either <LoginButton /> or <LogoutButton /> depending on its current state. It will also render a <Greeting /> from the previous example:
+class LoginControl extends React.Component {
   constructor(props) {
     super(props);
-    this.onClick = this.onClick.bind(this);
-    this.onReset = this.onReset.bind(this);
-    this.state = {
-      clickCount: 0,
-      labels: []
-    };
+    this.handleLoginClick = this.handleLoginClick.bind(this);
+    this.handleLogoutClick = this.handleLogoutClick.bind(this);
+    this.state = {isLoggedIn: false};
   }
-  onClick(e) {
-    let labels = this.state.labels.concat([this.state.clickCount]);
-    this.setState({
-      clickCount: this.state.clickCount+1,
-      labels: labels
-    });
+  handleLoginClick() {
+    this.setState({isLoggedIn: true});
   }
-  onReset(e) {
-    this.setState({clickCount: 0, labels: []});
+  handleLogoutClick() {
+    this.setState({isLoggedIn: false});
   }
   render() {
-    let buttons = this.state.labels.map(
-      (value, i) => {
-        return <Button key={i} value={`${value}`} type="button" className="-info -lg"/>
-      }
-    );
+    const isLoggedIn = this.state.isLoggedIn;
+    let button = null;
+    if (isLoggedIn) {
+      button = <LogoutButton onClick={this.handleLogoutClick} className="btn btn-outline-danger ml-2 btn-lg"/>;
+    } else {
+      button = <LoginButton onClick={this.handleLoginClick} className="btn btn-primary ml-2 btn-lg"/>;
+    }
     return (
-      <Jumbotron className="-fluid" containerFluid={true}>
-        <h1 className="display-3">Building React User Interfaces</h1><p className="lead">with Bootstrap and SASS</p>
-
-        <Button href="mailto:cristin@cristin.io" role="button" target="_blank" label="Contact" className="-primary -lg" />
-
-        <Button onClick={this.onClick} type="button" className="-light" value={`${this.state.clickCount} Clicks`}/>
-
-        <Button onClick={this.onReset} type="button" className="-danger -lg" value="Reset"/>
-        <br/><br/>
-        <CSSTransitionGroup transitionName='buttons' transitionLeaveTimeout={500} transitionEnterTimeout={2000}>{buttons}</CSSTransitionGroup>
-      </Jumbotron>
+      <div className="card mx-auto mt-4 w-75">
+        <div className="card-header">
+          <Greeting isLoggedIn={isLoggedIn}/>
+          <div className="float-right">{button}</div>
+        </div>
+        {isLoggedIn &&
+          <div className="card-body mt-4">
+            {messages.length > 0 &&
+              <div className="card-text text-center">
+                <p className="h3 font-weight-normal">You have {messages.length} unread messages.</p>
+                <button className="btn btn-primary btn-lg mt-4 mb-4">View Mailbox</button>
+              </div>
+            }
+          </div>
+        }
+      </div>
     );
+  }
+}
+
+
+
+export class App extends React.Component {
+  render() {
+    return (
+      <div className="container">
+
+          <LoginControl />
+
+      </div>
+    )
   }
 }
