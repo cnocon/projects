@@ -1,18 +1,41 @@
 {
-  "name": "Server",
+  "name": "react-fun",
   "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ]
+  },
+  "description": "Learning and playing with cool stuff.",
+  "main": "./app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server"
   },
   "keywords": [],
   "author": "Cristin O'Connor",
   "license": "ISC",
   "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "chart.js": "^2.7.1",
+    "cors": "^2.8.4",
     "dotenv": "^4.0.0",
-    "express": "^4.13.4",
+    "express": "^4.16.2",
+    "jquery": "^3.2.1",
+    "json-loader": "^0.5.7",
+    "just.randomcolor": "^0.1.1",
     "mongodb": "^2.2.33",
-    "mongojs": "^2.4.0"
+    "mongojs": "^2.4.1",
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2"
+  },
+  "devDependencies": {
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1",
+    "dsv-loader": "^1.1.0"
   }
 }

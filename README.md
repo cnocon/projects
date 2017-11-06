@@ -1,4 +1,15 @@
+To start:
 
+Start application server.
+$ `node app.js`
+Run npm
+$ `npm start`
+
+
+
+---
+
+# OLD STUFF
 
 # MongoDB 
 ## Getting Started
