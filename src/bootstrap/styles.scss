@@ -1,26 +1,71 @@
-@import url('https://fonts.googleapis.com/css?family=Prosto+One');
-$image: url(/img/forest.jpg);
-$border-style:1px solid #ccc;
+@import url('https://fonts.googleapis.com/css?family=Freckle+Face');
+@import url('https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i|Open+Sans:300,300i,400,400i,600,600i,700,700i');
+
+$blue:    #007bff;
+$indigo:  #6610f2;
+$purple:  #6f42c1;
+$pink:    #e83e8c;
+$red:     #dc3545;
+$orange:  #fd7e14;
+$yellow:  #ffc107;
+$green:   #28a745;
+$teal:    #20c997;
+$cyan:    #17a2b8;
+
+
+$primary-font:'Lato','Open Sans','Arial',sans-serif;
+$border-style: 1px solid $purple;
+$square-font: 'Freckle Face','Tahoma','Trebuchet MS';
 
 .game {
+  font-size: 16px;
+  line-height: 24px;
   width: 300px;
   text-align: center;
   margin: 0 auto;
   display: block;
+  padding: 1.5rem 0;
+
+  .status {
+    display: inline-block;
+    text-align: center;
+    font-family: $primary-font;
+    background: $indigo;
+    font-weight: 300;
+    font-size: 1.25rem;
+    line-height: 1.5em;
+    margin: 0 auto 2em;
+    color: $light;
+    padding: 0.45em 0.75em;
+    border-radius: 0.1875em;
+    vertical-align: baseline;
+
+    span {
+      font-size: inherit;
+      border-radius: 0.1875em;
+      line-height: 1em;
+      margin-left: 0.45em;
+      padding: 0.0765em 0.25em;
+      font-weight: 700;
+      background: $white;
+      color: $indigo;
+      vertical-align: baseline;
+    }
+  }
 }
+
 .game-board {
   display: inline-block;
   margin: 0 auto;
   width: auto;
-  padding: 34px 0;
   .board-row {
-    font-family: 'Prosto One';
+    font-family: $square-font;
     display: block;
-    width: 210px;
+    width: 206px;
     height: 68px;
     border: $border-style;
     border-top: 0;
-    background: #fff;
+    background: $light;
 
     &:first-child {
       border-top: $border-style;
@@ -37,135 +82,32 @@ $border-style:1px solid #ccc;
   width: 68px;
   height: 68px;
   background: transparent;
+  // button defaults overrides
+  border-top-width: 0;
+  border-bottom-width: 0;
+  border-right-width: 0;
+  border-left-width: 0;
+
   &:first-child {
     border-right: $border-style;
+    border-right-width: 1px;
   }
   &:last-child {
     border-left: $border-style;
+    border-left-width: 1px;
   }
-}
-@mixin background-it($path) {
-  background-image: $path;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  text-align: center;
-}
-
-.buttons-enter {
-  opacity: 0.01;
-}
-.buttons-enter-active {
-  opacity: 1;
-  transition: opacity 2s ease-in;
-}
-.buttons-leave {
-  opacity: 1;
-}
-.buttons-leave-active {
-  opacity: 0;
-  transition: opacity 500ms ease-out;
-}
-
-#root {
-  max-height: 100vh;
-  overflow: hidden;
-}
-
-.jumbotron {
-  @include background-it($image);
-  min-height: 100vh;
-  padding: 10vh 2.5%;
-
-  h1, .lead {
-    color: #fff;
+  &:hover {
+    background: rgba($indigo, 0.8);
+    cursor: pointer;
+    color: $white;
   }
-
-  h1 {
-    font-size: 3.5rem;
+  &:active {
+    background: rgba($purple, 1);
+    color: $white;
   }
-
-  .lead {
-    margin-bottom: 1.5rem;
-    font-size: 1.75rem;
-  }
-
-  .btn {
-    margin: 2rem 2.75% 0;
-
-    &:hover {
-      cursor: pointer;
-    }
-  }
-
-  .btn.rounded-circle {
-    font-weight: bold;
-    width: 60px;
-    height: 60px;
-    font-size: 45px;
-    line-height: 60px;
-    text-align: center;
-    padding: 0;
-    border-width: 0;
-    vertical-align: middle;
-  }
-}
-
-@media screen and (max-height: 320px) {
-  .jumbotron {
-    padding: 2rem 1rem;
-
-    h1 {
-      font-size: 3rem;
-    }
-    .lead {
-      margin-bottom: 1rem;
-    }
-  }
-}
-
-@media screen and (min-width: 43.75rem) {
-  .jumbotron {
-    padding: 15vh 10%;
-
-    h1 {
-      font-size: 4rem;
-    }
-
-    .lead {
-      margin-bottom: 3rem;
-      font-size: 1.75rem;
-    }
-
-    .btn {
-      margin: 0 0.75rem 0;
-    }
-  }
-}
-
-
-@media screen and (min-width: 64rem) {
-  .jumbotron {
-    padding: 15vh 12.5%;
-
-    h1 {
-      font-size: 6rem;
-    }
-
-    .lead {
-      font-size: 3.5rem;
-      margin-bottom: 5rem;
-    }
-
-    .btn {
-      font-size: 1.75rem;
-      margin-right: 1rem;
-    }
-  }
-}
-
-@media screen and (min-width: 85.5rem) {
-  .jumbotron {
-    padding: 20vh 15%;
+  &:active,
+  &:focus {
+    outline: 0 !important;
+    color: $white;
   }
 }
