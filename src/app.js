@@ -1,18 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import $ from 'jquery';
 import './app.scss';
-
-// To make a fully-working game, we now need to check if one player has won the game, and alternate placing X and O in the squares. To check if someone has won, we’ll need to have the value of all 9 squares in one place, rather than split up across the Square components... the best solution here is to store this state in the Board component instead of in each Square – and the Board component can tell each Square what to display, like how we made each square display its index earlier.
-/***********************************************
-  When you want to aggregate data from multiple children or to have two child components communicate with each other, move the state upwards so that it lives in the parent component. The parent can then pass the state back down to the children via props, so that the child components are always in sync with each other and with the parent.
-***********************************************/
 
 class Square extends React.Component {
   render() {
     return (
-      <button className="square" data-value={this.props.value} onClick={() => this.props.onClick()}>
-        {this.props.value}
-      </button>
+      <button className={`square square-${this.props.value}`} onClick={() => this.props.onClick()}>{this.props.value}</button>
     );
   }
 }
@@ -21,20 +15,30 @@ class Board extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      squares: Array(9).fill(null),
-      xIsNext: true
+      squares: {'0':null,'1':null,'2':null,'3':null,'4':null,'5':null,'6':null,'7':null,'8':null},
+      isXmove: true
     };
   }
   handleClick(i) {
-    //use .slice() to copy the squares array instead of mutating the existing array.
-    const squares = this.state.squares.slice();
-    squares[i] = this.state.xIsNext ? 'X' : 'O';
-    this.setState({
-      squares: squares,
-      xIsNext: !this.state.xIsNext
-    });
+    console.log(this.state.squares[i]);
+    if (this.state.squares[i] == null) {
+      //use .slice() to copy the squares array instead of mutating the existing array.
+      // const squares = this.state.squares.slice();
+      // squares[i] = this.state.isXmove ? 'X' : 'O';
+      const key = `${i}`;
+      const obj = new Object();
+      obj[key] = this.state.isXmove ? 'X' : 'O';
+
+
+
+      this.setState({
+        squares: Object.assign(this.state.squares, obj),
+        isXmove: !this.state.isXmove
+      });
+    }
   }
   renderSquare(i) {
+    console.log('rendering square ' + i);
     return (
       <Square
         value={this.state.squares[i]}
@@ -44,33 +48,32 @@ class Board extends React.Component {
     );
   }
   render() {
-
     const winner = calculateWinner(this.state.squares);
     let status;
     if (winner) {
-      status = <h4 className="display-4 alert alert-success font-weight-bold text-success">{`Player ${winner} Wins!`}</h4>;
+      status = <div className="status bg-success"><span className="badge badge-success text-success mr-1">{`Player ${winner}`}</span> Wins!</div>;
+      $('.game-board').find('button').attr('disabled','disabled');
     } else {
-      status = <div className="status">Next Player: <span className="badge badge-secondary">{this.state.xIsNext ? 'X' : 'O'}</span></div>;
+      status = <div className="status">Next: <span className="badge badge-secondary">{`Player ${this.state.isXmove ? 'X' : 'O'}`}</span></div>;
     }
     return (
-
       <div>
         {status}
         <div className="game-board">
           <div className="board-row">
-            {this.renderSquare(0)}
-            {this.renderSquare(1)}
-            {this.renderSquare(2)}
+            <Square onClick={() => this.handleClick('0')} value={this.state.squares['0']}/>
+            <Square onClick={() => this.handleClick('1')} value={this.state.squares['1']}/>
+            <Square onClick={() => this.handleClick('2')} value={this.state.squares['2']}/>
           </div>
           <div className="board-row">
-            {this.renderSquare(3)}
-            {this.renderSquare(4)}
-            {this.renderSquare(5)}
+            <Square onClick={() => this.handleClick('3')} value={this.state.squares['3']}/>
+            <Square onClick={() => this.handleClick('4')} value={this.state.squares['4']}/>
+            <Square onClick={() => this.handleClick('5')} value={this.state.squares['5']}/>
           </div>
           <div className="board-row">
-            {this.renderSquare(6)}
-            {this.renderSquare(7)}
-            {this.renderSquare(8)}
+            <Square onClick={() => this.handleClick('6')} value={this.state.squares['6']}/>
+            <Square onClick={() => this.handleClick('7')} value={this.state.squares['7']}/>
+            <Square onClick={() => this.handleClick('8')} value={this.state.squares['8']}/>
           </div>
         </div>
       </div>

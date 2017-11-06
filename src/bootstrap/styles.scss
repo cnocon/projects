@@ -42,7 +42,8 @@ $square-font: 'Freckle Face','Tahoma','Trebuchet MS';
     vertical-align: baseline;
 
     span {
-      min-width: 19.5px;
+      min-width: 75.3125px;
+      text-align: center;
       font-size: inherit;
       border-radius: 0.1875em;
       line-height: 1em;
@@ -54,6 +55,7 @@ $square-font: 'Freckle Face','Tahoma','Trebuchet MS';
       vertical-align: baseline;
     }
   }
+
 }
 
 .game-board {
@@ -91,11 +93,11 @@ $square-font: 'Freckle Face','Tahoma','Trebuchet MS';
   font-size: 2.5rem;
   font-family: 'Skranji';
 
-  &[data-value="X"] {
+  &.square-X {
     color: $warning;
   }
 
-  &[data-value="O"] {
+  &.square-O {
     color: $teal;
   }
 
@@ -114,11 +116,9 @@ $square-font: 'Freckle Face','Tahoma','Trebuchet MS';
   }
   &:active {
     background: rgba($teal, 1);
-    color: $white;
   }
   &:active,
   &:focus {
     outline: 0 !important;
-    color: $white;
   }
 }
