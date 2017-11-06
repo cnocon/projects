@@ -8,12 +8,9 @@ import './app.scss';
 ***********************************************/
 
 class Square extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
-      <button onClick={() => this.props.onClick()} className="square">
+      <button className="square" data-value={this.props.value} onClick={() => this.props.onClick()}>
         {this.props.value}
       </button>
     );
@@ -25,25 +22,32 @@ class Board extends React.Component {
     super(props);
     this.state = {
       squares: Array(9).fill(null),
-      player: 'X'
+      xIsNext: true
     };
   }
   handleClick(i) {
-    console.log(this);
+    //use .slice() to copy the squares array instead of mutating the existing array.
+    const squares = this.state.squares.slice();
+    squares[i] = this.state.xIsNext ? 'X' : 'O';
+    this.setState({
+      squares: squares,
+      xIsNext: !this.state.xIsNext
+    });
   }
   renderSquare(i) {
     return (
       <Square
         value={this.state.squares[i]}
+        data-value={this.state.squares[i]}
         onClick={() => this.handleClick(i)}
       />
     );
   }
   render() {
-    const status = `${this.state.player}`;
+    const status = <div className="status">Next Player: <span className="badge badge-secondary">{this.state.xIsNext ? 'X' : 'O'}</span></div>;
     return (
       <div>
-        <div className="status">Next Player: <span className="badge badge-secondary">{status}</span></div>
+        {status}
         <div className="game-board">
           <div className="board-row">
             {this.renderSquare(0)}
