@@ -41,6 +41,7 @@ $square-font: 'Freckle Face','Tahoma','Trebuchet MS';
     vertical-align: baseline;
 
     span {
+      min-width: 19.5px;
       font-size: inherit;
       border-radius: 0.1875em;
       line-height: 1em;
@@ -64,11 +65,14 @@ $square-font: 'Freckle Face','Tahoma','Trebuchet MS';
     width: 206px;
     height: 68px;
     border: $border-style;
-    border-top: 0;
+    border-bottom: 0;
     background: $light;
 
     &:first-child {
-      border-top: $border-style;
+      // border-top: $border-style;
+    }
+    &:last-child {
+      border-bottom: $border-style;
     }
   }
 }
@@ -83,18 +87,19 @@ $square-font: 'Freckle Face','Tahoma','Trebuchet MS';
   height: 68px;
   background: transparent;
   // button defaults overrides
-  border-top-width: 0;
-  border-bottom-width: 0;
-  border-right-width: 0;
-  border-left-width: 0;
+  // border-top-width: 0;
+  // border-bottom-width: 0;
+  // border-right-width: 0;
+  // border-left-width: 0;
+  border: $border-style;
 
   &:first-child {
-    border-right: $border-style;
-    border-right-width: 1px;
+    // border-right: $border-style;
+    // border-right-width: 1px;
   }
   &:last-child {
-    border-left: $border-style;
-    border-left-width: 1px;
+    // border-left: $border-style;
+    // border-left-width: 1px;
   }
   &:hover {
     background: rgba($purple,1);
