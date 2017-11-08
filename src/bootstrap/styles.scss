@@ -1,6 +1,7 @@
-// @import url('https://fonts.googleapis.com/css?family=Freckle+Face');
-@import url('https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i|Open+Sans:300,300i,400,400i,600,600i,700,700i');
-// @import url('https://fonts.googleapis.com/css?family=Skranji:700');
+// |Open+Sans:300,300i,400,400i,600,600i,700,700i
+@import url('https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i');
+$primary-font:'Lato','Arial',sans-serif;
+$border-style: 1px solid $border-color;
 
 $blue:    #007bff;
 $indigo:  #6610f2;
@@ -12,103 +13,56 @@ $yellow:  #ffc107;
 $green:   #28a745;
 $teal:    #20c997;
 $cyan:    #17a2b8;
+$white:    #fff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #868e96;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black:    #000;
 
-
-$primary-font:'Lato','Open Sans','Arial',sans-serif;
-$border-style: 1px solid $border-color;
-.game {
-
+.page-item:last-child {
+  button {
+    background-color: $teal;
+    border-color: $teal;
+    color: $white;
+  }
+  &:first-child button {
+    background-color: transparent;
+    border-color: $secondary;
+    color: $secondary;
+  }
 }
-.container {
-  min-width: 289px;
-  max-width: 450px;
-  margin: 0 auto;
+
+.table tr {
+  display: table-row-group;
 }
+.table td {
+  padding: 0;
+  min-width: 80px;
+  height: 80px;
+  text-align: center;
+}
+td button,
+td button.btn.btn-light {
+  display: inline-block;
+  font-size: 70px;
+  line-height: 80px;
+  vertical-align: middle;
+  width: 80px;
+  height: 80px;
+  // color: lighten($blue, 20%);
+  color: $indigo;
+  background: $white;
+}
+
+
+
+
 .btn-link:hover {
   cursor: pointer;
-}
-.card .alert {
-  h4 {
-    margin-bottom: 0;
-  }
-}
-.card-footer {
-  .technologies {
-    font-size: 12px;
-    width: 57.5%;
-    padding-right: 2.5%;
-    padding-left: 0;
-    float: left;
-    .badge {
-      margin: 3px 3px 0 0;
-      &:last-child {
-        margin-right: 0;
-      }
-    }
-  }
-  .credit {
-    font-size: 10px;
-    width: 40%;
-    float: right;
-    color: $text-muted;
-  }
-
-  p {
-    font-style: italic;
-  }
-}
-.game {
-  font-size: 16px;
-  line-height: 1.25rem;
-  text-align: center;
-  margin: 0 auto;
-  display: block;
-  padding: 1rem 0;
-  width: 100%;
-  min-width: 215px;
-}
-
-.game-board {
-  display: block;
-  margin: 0 auto;
-  width: 215px;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-
-  .board-row {
-    display: block;
-    border: $border-style;
-    border-bottom: 0;
-
-    &:last-child {
-      border-bottom: $border-style;
-    }
-  }
-}
-.btn {
-  &:hover {
-    cursor: pointer;
-  }
-}
-.square {
-  display: inline-block;
-  text-align: center;
-  font-size: 3rem;
-  vertical-align: middle;
-  color: $black;
-  width: 71px;
-  height: 71px;
-  background: transparent;
-  border: $border-style;
-  padding: 0;
-  margin: 0;
-
-  &:hover {
-    cursor: pointer;
-  }
-
-  &:active,
-  &:focus {
-    outline: 0 !important;
-  }
 }

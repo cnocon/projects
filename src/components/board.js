@@ -17,23 +17,24 @@ export default class Board extends React.Component {
   }
   render() {
     return (
-      <div>
-        <div className="board-row">
-          {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(3)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(6)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
-        </div>
-      </div>
+      <table className="table table-bordered table-responsive-sm"><tbody>
+        <tr>
+          <td>{this.renderSquare(0)}</td>
+          <td>{this.renderSquare(1)}</td>
+          <td>{this.renderSquare(2)}</td>
+        </tr>
+
+        <tr>
+          <td>{this.renderSquare(3)}</td>
+          <td>{this.renderSquare(4)}</td>
+          <td>{this.renderSquare(5)}</td>
+        </tr>
+        <tr>
+          <td>{this.renderSquare(6)}</td>
+          <td>{this.renderSquare(7)}</td>
+          <td>{this.renderSquare(8)}</td>
+        </tr>
+      </tbody></table>
     );
   }
 }
@@ -47,7 +48,7 @@ export default class Board extends React.Component {
  */
 function Square(props) {
   return (
-    <button className="square" onClick={props.onClick}>
+    <button className="btn btn-light p-0" onClick={props.onClick}>
       {props.value}
     </button>
   );
