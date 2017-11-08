@@ -30,7 +30,9 @@ $border-style: 1px solid $border-color;
 .game-board {
   display: block;
   margin: 0 auto;
-  width: 68.6666666667%; //206px;
+  width: 206px;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 
   .board-row {
     display: block;

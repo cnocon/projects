@@ -1,33 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Game from './game';
+import '../app.scss';
 
 export default class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <header>
-          <h2>Tic Tac Toe</h2>
-          <p>Based on the Tic Tac Toe application created in <a href="https://reactjs.org/tutorial/tutorial.html">Facebook's React Tutorial</a>.</p>
-        </header>
-        <div className="container"><Game /></div>
-        <footer>
-          <div className="dropdown">
-            <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Technologies
-            </button>
-            <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a className="dropdown-item" href="#">ReactJS</a>
-              <a className="dropdown-item" href="#">Node + Webpack</a>
-              <a className="dropdown-item" href="#">Bootstrap</a>
+        <div className="card">
+          <Game />
+          <div className="card-footer">
+            <div className="w-75 float-left">
+              <h5 className="d-inline-block">Technologies Used</h5>
+              <ul className="list-inline">
+                <li className="badge badge-warning badge-pill">ReactJS</li>
+                <li className="badge badge-warning badge-pill">Node + Webpack</li>
+                <li className="badge badge-warning badge-pill">Bootstrap</li>
+              </ul>
             </div>
+            <div style={{fontSize: '10px'}} className="w-25 text-muted font-weight-light float-right font-italic">Based on the Tic Tac Toe application created in <a href="https://reactjs.org/tutorial/tutorial.html">Facebook's React Tutorial</a>.</div>
           </div>
-        </footer>
+        </div>
       </div>
     )
   }
 }
-
 
 
 

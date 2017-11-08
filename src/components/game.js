@@ -46,15 +46,12 @@ export default class Game extends React.Component {
     return (
       <div className="game">
         <div className="game-board">
-          <Board
-            squares={current.squares}
-            onClick={(i) => this.handleSquareClick(i)}
-          />
+          <Board squares={current.squares} onClick={(i) => this.handleSquareClick(i)}/>
+          <div className="game-info">
+            <Status winner={winner} xIsNext={this.state.xIsNext}/>
+            <ol>{/* TODO */}</ol>
+          </div>
           <button role="button" className="btn btn-link mt-2" onClick={()=>{this.handleResetClick()}}>Start Over</button>
-        </div>
-        <div className="game-info mt-4">
-          <Status winner={winner} xIsNext={this.state.xIsNext}/>
-          <ol>{/* TODO */}</ol>
         </div>
       </div>
     );
@@ -72,12 +69,12 @@ export default class Game extends React.Component {
  */
 class Status extends React.Component {
   render () {
-    const classNames = this.props.winner ? '-info' : '-success';
+    const classNames = this.props.winner ? 'success' : 'primary';
     const message = this.props.winner ?
       `Winner: ${this.props.winner}` :
       `Next player: ${this.props.xIsNext ? 'X' : 'O'}`;
     return (
-      <div className={`status d-inline-block text-${classNames}`}>{message}</div>
+      <div className={`status alert alert-${classNames}`}>{message}</div>
     )
   }
 }
