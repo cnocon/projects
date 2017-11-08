@@ -44,14 +44,14 @@ export default class Game extends React.Component {
     const current = history[history.length - 1];
     const winner = calculateWinner(current.squares);
     return (
-      <div className="game">
+      <div className="game mb-3">
+        <Status winner={winner} xIsNext={this.state.xIsNext}/>
         <div className="game-board">
           <Board squares={current.squares} onClick={(i) => this.handleSquareClick(i)}/>
           <div className="game-info">
-            <Status winner={winner} xIsNext={this.state.xIsNext}/>
             <ol>{/* TODO */}</ol>
           </div>
-          <button role="button" className="btn btn-link mt-2" onClick={()=>{this.handleResetClick()}}>Start Over</button>
+          <button role="button" className="btn btn-primary float-left btn-sm" onClick={()=>{this.handleResetClick()}}>RESET</button>
         </div>
       </div>
     );
@@ -69,12 +69,14 @@ export default class Game extends React.Component {
  */
 class Status extends React.Component {
   render () {
-    const classNames = this.props.winner ? 'success' : 'primary';
+    const classes = this.props.winner ? 'success' : 'secondary';
     const message = this.props.winner ?
-      `Winner: ${this.props.winner}` :
-      `Next player: ${this.props.xIsNext ? 'X' : 'O'}`;
+      `${this.props.winner} Wins! `:
+      `${this.props.xIsNext ? 'X' : 'O'}'s Turn`;
     return (
-      <div className={`status alert alert-${classNames}`}>{message}</div>
+      <div className={`alert alert-${classes}`} role="alert">
+        <h4 className='status alert-heading'>{message}</h4>
+      </div>
     )
   }
 }

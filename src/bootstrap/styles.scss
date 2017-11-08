@@ -16,15 +16,53 @@ $cyan:    #17a2b8;
 
 $primary-font:'Lato','Open Sans','Arial',sans-serif;
 $border-style: 1px solid $border-color;
+.container {
+  min-width: 280px;
+  max-width: 450px;
+  margin: 0 auto;
+}
+.btn-link:hover {
+  cursor: pointer;
+}
+.card .alert {
+  h4 {
+    margin-bottom: 0;
+  }
+}
+.card-footer {
+  .technologies {
+    font-size: 12px;
+    width: 57.5%;
+    padding-right: 2.5%;
+    padding-left: 0;
+    float: left;
+    .badge {
+      margin: 3px 3px 0 0;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+  .credit {
+    font-size: 10px;
+    width: 40%;
+    float: right;
+    color: $text-muted;
+  }
 
+  p {
+    font-style: italic;
+  }
+}
 .game {
   font-size: 16px;
   line-height: 1.25rem;
-  width: 300px;
   text-align: center;
   margin: 0 auto;
   display: block;
   padding: 1rem 0;
+  width: 100%;
+  min-width: 206px;
 }
 
 .game-board {
@@ -44,6 +82,11 @@ $border-style: 1px solid $border-color;
     }
   }
 }
+.btn {
+  &:hover {
+    cursor: pointer;
+  }
+}
 .square {
   display: inline-block;
   text-align: center;
@@ -54,9 +97,10 @@ $border-style: 1px solid $border-color;
   height: 68px;
   background: transparent;
   border: $border-style;
+  padding: 0;
+  margin: 0;
 
   &:hover {
-    background: rgba($info, 0.2);
     cursor: pointer;
   }
 
