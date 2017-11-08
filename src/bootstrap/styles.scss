@@ -16,8 +16,11 @@ $cyan:    #17a2b8;
 
 $primary-font:'Lato','Open Sans','Arial',sans-serif;
 $border-style: 1px solid $border-color;
+.game {
+
+}
 .container {
-  min-width: 280px;
+  min-width: 289px;
   max-width: 450px;
   margin: 0 auto;
 }
@@ -62,13 +65,13 @@ $border-style: 1px solid $border-color;
   display: block;
   padding: 1rem 0;
   width: 100%;
-  min-width: 206px;
+  min-width: 215px;
 }
 
 .game-board {
   display: block;
   margin: 0 auto;
-  width: 206px;
+  width: 215px;
   padding-left: 0 !important;
   padding-right: 0 !important;
 
@@ -93,8 +96,8 @@ $border-style: 1px solid $border-color;
   font-size: 3rem;
   vertical-align: middle;
   color: $black;
-  width: 68px;
-  height: 68px;
+  width: 71px;
+  height: 71px;
   background: transparent;
   border: $border-style;
   padding: 0;

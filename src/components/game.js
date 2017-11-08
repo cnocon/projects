@@ -43,16 +43,27 @@ export default class Game extends React.Component {
     const history = this.state.history;
     const current = history[history.length - 1];
     const winner = calculateWinner(current.squares);
+
+    const moves = history.map((step, move) => {
+      const desc = move ?
+        move :
+        'Clear';
+      return (
+        <li className="page-item">
+          <a href="#" className="page-link" onClick={() => this.jumpTo(move)}>{desc}</a>
+        </li>
+      );
+    });
     return (
       <div className="game mb-3">
         <Status winner={winner} xIsNext={this.state.xIsNext}/>
         <div className="game-board">
           <Board squares={current.squares} onClick={(i) => this.handleSquareClick(i)}/>
           <div className="game-info">
-            <ol>{/* TODO */}</ol>
+            <ol className="pagination pagination-sm">{moves}</ol>
           </div>
-          <button role="button" className="btn btn-primary float-left btn-sm" onClick={()=>{this.handleResetClick()}}>RESET</button>
         </div>
+        <button role="button" className="btn btn-primary float-left btn-sm" onClick={()=>{this.handleResetClick()}}>RESET</button>
       </div>
     );
   }
