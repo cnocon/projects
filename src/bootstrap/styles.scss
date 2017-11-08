@@ -19,30 +19,23 @@ $border-style: 1px solid $border-color;
 
 .game {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 1.25rem;
   width: 300px;
   text-align: center;
   margin: 0 auto;
   display: block;
-  padding: 1.5rem 0;
-
-  .status {
-  }
-
+  padding: 1rem 0;
 }
 
 .game-board {
-  display: inline-block;
+  display: block;
   margin: 0 auto;
-  width: auto;
+  width: 68.6666666667%; //206px;
 
   .board-row {
     display: block;
-    width: 206px;
-    height: 68px;
     border: $border-style;
     border-bottom: 0;
-    background: $white;
 
     &:last-child {
       border-bottom: $border-style;
@@ -52,41 +45,19 @@ $border-style: 1px solid $border-color;
 .square {
   display: inline-block;
   text-align: center;
-  font-size: 24px;
-  line-height: 68px;
+  font-size: 3rem;
   vertical-align: middle;
-  color: #222;
+  color: $black;
   width: 68px;
   height: 68px;
   background: transparent;
   border: $border-style;
-  font-size: 2.5rem;
-  // font-family: 'Skranji';
 
-  &.square-X {
-    color: $warning;
-  }
-
-  &.square-O {
-    color: $teal;
-  }
-
-  &:first-child {
-    // border-right: $border-style;
-    // border-right-width: 1px;
-  }
-  &:last-child {
-    // border-left: $border-style;
-    // border-left-width: 1px;
-  }
   &:hover {
-    background: rgba($purple,1);
+    background: rgba($info, 0.2);
     cursor: pointer;
-    color: $white;
   }
-  &:active {
-    background: rgba($teal, 1);
-  }
+
   &:active,
   &:focus {
     outline: 0 !important;

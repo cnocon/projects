@@ -2,47 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {calculateWinner} from '../utils/utils.js';
 
-// is there a performance advantage to creating this component like this instead of using a React.Component class?
-function Square(props) {
-  return (
-    <button className="square" onClick={props.onClick}>
-      {props.value}
-    </button>
-  );
-}
-
-class Status extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  render () {
-    const winner = calculateWinner(this.props.squares);
-    let status;
-    // if (winner) {
-    //   status = 'Winner: ' + winner;
-    // } else {
-    //   status = 'Next player: ' + (this.props.xIsNext ? 'X' : 'O');
-    // }
-    return (
-      <div className="status">
-        {winner ? `Winner: ${winner}` : `Next player: ${this.props.xIsNext ? 'X' : 'O'}`}
-      </div>
-    )
-  }
-
-
-
-}
-
+/**
+ * @Board (default)
+ *
+ * Holds the state for whose turn it is and the value of squares
+ * on the board.
+ */
 export default class Board extends React.Component {
   constructor() {
     super();
     this.state = {
       squares: Array(9).fill(null),
-      xIsNext: true,
+      xIsNext: true
     };
   }
-
   handleClick(i) {
     const squares = this.state.squares.slice();
     if (calculateWinner(squares) || squares[i]) {
@@ -54,7 +27,6 @@ export default class Board extends React.Component {
       xIsNext: !this.state.xIsNext,
     });
   }
-
   renderSquare(i) {
     return (
       <Square
@@ -63,7 +35,12 @@ export default class Board extends React.Component {
       />
     );
   }
-
+  resetBoard() {
+    this.setState({
+      squares: Array(9).fill(null),
+      xIsNext: true,
+    })
+  }
   render() {
     return (
       <div>
@@ -83,7 +60,46 @@ export default class Board extends React.Component {
           {this.renderSquare(7)}
           {this.renderSquare(8)}
         </div>
+        <button className="btn btn-lg btn-secondary mt-2" onClick={()=>{this.resetBoard()}}>
+          Reset
+        </button>
       </div>
     );
+  }
+}
+
+// ============================================
+/**
+ * @Square
+ *
+ * A game square.
+ */
+function Square(props) {
+  return (
+    <button className="square" onClick={props.onClick}>
+      {props.value}
+    </button>
+  );
+}
+
+/**
+ * @Status
+ *
+ * Contains messaging for whose turn it is, and announces
+ * the winner of the game, if applicable.
+ */
+class Status extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render () {
+    const winner = calculateWinner(this.props.squares);
+    const classNames = winner ? 'alert alert-success' : 'alert alert-info';
+    let message = winner ?
+      `Winner: ${winner}` :
+      `Next player: ${this.props.xIsNext ? 'X' : 'O'}`;
+    return (
+      <div className={`status ${classNames}`}>{message}</div>
+    )
   }
 }
