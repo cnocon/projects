@@ -1,7 +1,7 @@
 {
-  "name": "visualization-with-react",
+  "name": "facebook-react-tutorial",
   "version": "1.0.0",
-  "description": "Learning webpack with react.",
+  "description": "Facebook React Tutorial w/Node and Webpack.",
   "main": "index.js",
   "babel": {
     "presets": [
@@ -37,8 +37,11 @@
   "dependencies": {
     "babel-core": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
+    "jquery": "^1.12.4",
     "popper.js": "^1.12.6",
     "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react-addons-css-transition-group": "^15.6.2",
+    "react-dom": "^16.0.0",
+    "react-transition-group": "^1.2.1"
   }
 }
