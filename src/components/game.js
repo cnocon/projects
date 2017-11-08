@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import calculateWinner from './utils/utils.js';
-import {Board} from './board'
+import Board from './board'
 
 export default class Game extends React.Component {
   render() {

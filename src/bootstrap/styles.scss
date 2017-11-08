@@ -27,32 +27,6 @@ $border-style: 1px solid $border-color;
   padding: 1.5rem 0;
 
   .status {
-    display: inline-block;
-    text-align: center;
-    font-family: $primary-font;
-    background: $purple;
-    font-weight: 300;
-    font-size: 1.25rem;
-    line-height: 1.5em;
-    margin: 0 auto 2em;
-    color: $light;
-    padding: 0.45em 0.75em;
-    border-radius: 0.1875em;
-    vertical-align: baseline;
-
-    span {
-      min-width: 75.3125px;
-      text-align: center;
-      font-size: inherit;
-      border-radius: 0.1875em;
-      line-height: 1em;
-      margin-left: 0.45em;
-      padding: 0.0765em 0.25em;
-      font-weight: 700;
-      background: $white;
-      color: $indigo;
-      vertical-align: baseline;
-    }
   }
 
 }

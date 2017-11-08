@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import calculateWinner from './utils/utils.js';
+import {calculateWinner} from '../utils/utils.js';
 
+// is there a performance advantage to creating this component like this instead of using a React.Component class?
 function Square(props) {
   return (
     <button className="square" onClick={props.onClick}>
@@ -10,7 +11,30 @@ function Square(props) {
   );
 }
 
-export class Board extends React.Component {
+class Status extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render () {
+    const winner = calculateWinner(this.props.squares);
+    let status;
+    // if (winner) {
+    //   status = 'Winner: ' + winner;
+    // } else {
+    //   status = 'Next player: ' + (this.props.xIsNext ? 'X' : 'O');
+    // }
+    return (
+      <div className="status">
+        {winner ? `Winner: ${winner}` : `Next player: ${this.props.xIsNext ? 'X' : 'O'}`}
+      </div>
+    )
+  }
+
+
+
+}
+
+export default class Board extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -41,17 +65,9 @@ export class Board extends React.Component {
   }
 
   render() {
-    const winner = calculateWinner(this.state.squares);
-    let status;
-    if (winner) {
-      status = 'Winner: ' + winner;
-    } else {
-      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
-    }
-
     return (
       <div>
-        <h4 className="status display-4">{status}</h4>
+        <Status {...this.state} />
         <div className="board-row">
           {this.renderSquare(0)}
           {this.renderSquare(1)}
