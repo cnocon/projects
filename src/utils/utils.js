@@ -17,3 +17,15 @@ export function calculateWinner(squares) {
   }
   return null;
 }
+
+export function classify (key, value) {
+  const terms = value.split(' ');
+  let classes = key;
+  while (terms.length > 0) {
+    const text = terms.pop();
+    const newClass = /^-/.test(text) ? `${key}${text}` : text;
+    classes += ` ${newClass}`;
+  }
+  return classes;
+}
+
