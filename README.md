@@ -1,4 +1,5 @@
-This has my own projects and ideas, in addition to branches for different pieces of course content from [Learning React Data Visualization (via Udemy)](https://www.udemy.com/learning-reactjs-data-visualization/learn/v4/content)
+This has my own projects and ideas, in addition to branches for different pieces of course content from [Learning Path: React: Make Stunning React Websites (via Udemy)](https://www.udemy.com/learning-path-react-make-stunning-react-websites/learn/v4/overview)
+
 
 # Troubleshooting Package Installs
 
@@ -12,4 +13,4 @@ $ nvm use 8.0 #or whatever version of node you need
 
 If it's missing, run `$ nvm install 8.0.0` or whatever version you need. 
 
----
+
